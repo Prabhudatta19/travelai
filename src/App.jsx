@@ -607,9 +607,12 @@ function App() {
                       }
                     }}>
                       <CardContent sx={{ p: 2.25 }}>
-                        <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', fontWeight: 600, mb: 1.5, fontSize: '1.1rem' }} gutterBottom>
-                          <FlightTakeoffIcon sx={{ mr: 1.5, color: 'white' }} /> Travel
-                        </Typography>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
+                          <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', fontWeight: 600, fontSize: '1.1rem' }} gutterBottom>
+                            <FlightTakeoffIcon sx={{ mr: 1.5, color: 'white' }} /> Travel
+                          </Typography>
+                          <Button variant="contained" size="small" sx={{ bgcolor: 'white', color: 'primary.main', fontWeight: 600 }} startIcon={<SendIcon sx={{ color: 'primary.main' }} />}>Book</Button>
+                        </Box>
                         <Typography variant="body1" paragraph sx={{ opacity: 0.9, lineHeight: 1.5, mb: 1 }}>{itinerary.flight.details}</Typography>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5, fontSize: '0.95rem' }}>Suggestion:</Typography>
                         <Typography variant="body1" sx={{ opacity: 0.9, fontSize: '0.95rem' }}>{itinerary.flight.suggestion}</Typography>
@@ -630,10 +633,17 @@ function App() {
                       }
                     }}>
                       <CardContent sx={{ p: 2.25 }}>
-                        <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', fontWeight: 600, mb: 1.5, fontSize: '1.1rem' }} gutterBottom>
-                          <HotelIcon sx={{ mr: 1.5, color: 'white' }} /> Accommodation
-                        </Typography>
+                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 1.5 }}>
+                          <Typography variant="h5" sx={{ display: 'flex', alignItems: 'center', fontWeight: 600, fontSize: '1.1rem' }} gutterBottom>
+                            <HotelIcon sx={{ mr: 1.5, color: 'white' }} /> Accommodation
+                          </Typography>
+                          <Button variant="contained" size="small" sx={{ bgcolor: 'white', color: 'primary.main', fontWeight: 600 }} startIcon={<MapIcon sx={{ color: 'primary.main' }} />}>Map</Button>
+                        </Box>
                         <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1, fontSize: '1rem' }}>{itinerary.accommodation.name}</Typography>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                          <Chip label="4.7 ★" sx={{ bgcolor: 'rgba(255,255,255,0.3)', color: 'white', fontWeight: 600, mr: 1 }} size="small" />
+                          <Typography variant="body2" sx={{ opacity: 0.8 }}>Top rated</Typography>
+                        </Box>
                         <Typography variant="body1" sx={{ opacity: 0.9, lineHeight: 1.5, mb: 1.5, fontSize: '0.95rem' }}>
                           Experience luxury and comfort with world-class amenities and exceptional service.
                         </Typography>
@@ -677,7 +687,14 @@ function App() {
                             }
                           }}>
                             <CardContent sx={{ p: 2 }}>
-                              <Typography variant="subtitle1" sx={{ fontWeight: 600, color: '#2c3e50', mb: 0.75, fontSize: '1rem' }}>{place.name}</Typography>
+                              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 0.75 }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 600, color: '#2c3e50', fontSize: '1rem' }}>{place.name}</Typography>
+                                <Button variant="contained" size="small" sx={{ bgcolor: 'primary.main', color: 'white', fontWeight: 600 }} startIcon={<MapIcon />}>Map</Button>
+                              </Box>
+                              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                                <Chip label="4.5 ★" sx={{ bgcolor: 'rgba(255,255,255,0.7)', color: '#2c3e50', fontWeight: 600, mr: 1 }} size="small" />
+                                <Typography variant="body2" sx={{ opacity: 0.8 }}>Popular</Typography>
+                              </Box>
                               <Typography variant="body2" sx={{ color: '#34495e', lineHeight: 1.6 }}>{place.specialty}</Typography>
                             </CardContent>
                           </Card>
