@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import TerrainIcon from '@mui/icons-material/Terrain';
 import {
   createTheme, ThemeProvider, CssBaseline, Container, Box, Button,
   Typography, CircularProgress, Card, CardContent, Grid, Paper, Fade, Divider, Chip, TextField, Avatar, LinearProgress
@@ -394,9 +395,20 @@ function App() {
                 <Divider />
               <Box sx={{ p: 2, backgroundColor: '#F5F5F5', flexShrink: 0 }}>
                   <Box sx={{ mb: 1, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {suggestions.map(sugg => (
-                      <Chip key={sugg.prompt} label={sugg.prompt} onClick={() => handleSuggestionClick(sugg)} variant="outlined" />
-                    ))}
+                    {suggestions.map(sugg => {
+                      let icon = null;
+                      if (sugg.prompt.toLowerCase().includes('mountain')) icon = <TerrainIcon sx={{ mr: 0.5 }} />;
+                      else if (sugg.prompt.toLowerCase().includes('coastal')) icon = <KitesurfingIcon sx={{ mr: 0.5 }} />;
+                      else if (sugg.prompt.toLowerCase().includes('royal')) icon = <CastleIcon sx={{ mr: 0.5 }} />;
+                      return (
+                        <Chip
+                          key={sugg.prompt}
+                          label={<Box sx={{ display: 'flex', alignItems: 'center' }}>{icon}{sugg.prompt}</Box>}
+                          onClick={() => handleSuggestionClick(sugg)}
+                          variant="outlined"
+                        />
+                      );
+                    })}
                   </Box>
                 <Box sx={{ display: 'flex', gap: 1 }}>
                   <TextField
